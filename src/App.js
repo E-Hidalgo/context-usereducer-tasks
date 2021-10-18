@@ -8,12 +8,17 @@ import TaskList from './components/TaskList';
 function App() {
   return (
     <div>
-      <Heading />
+      <div>
+        <div>
+          <Heading />
 
-      <Switch>
-        <Route path="/" component={TaskList} exact />
-        <Route path="/add" component={TaskForm} />
-      </Switch>
+          <Switch>
+            <Route path="/" component={TaskList} exact />
+            <Route path="/add" component={TaskForm} />
+          </Switch>
+        </div>
+      </div>
+
     </div>
   );
 }
