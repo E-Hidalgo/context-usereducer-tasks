@@ -2,16 +2,17 @@ import React, { useContext } from 'react'
 import { GlobalContext } from "../context/GlobalContext"
 
 import { FaTrashAlt, FaEdit } from "react-icons/fa"
+import "../App.css"
+
 
 const TaskList = () => {
 
   const context = useContext(GlobalContext)
   return (
-
-    <div>
-      <div>
+    <div className="TaskListContainer">
+      <div className="TaskList">
         {context.tasks.map((task) => (
-          <div key={task.id}>
+          <div className="TaskContainer" key={task.id}>
             <div>
               <h1>{task.title}</h1>
               <h6>{task.id}</h6>

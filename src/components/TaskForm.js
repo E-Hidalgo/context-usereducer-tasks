@@ -5,10 +5,6 @@ const TaskForm = () => {
 
   const { addTask } = useContext(GlobalContext) // tasks: [1,2,3]
 
-
-
-
-
   const [task, setTask] = useState({
     title: "",
     description: ""

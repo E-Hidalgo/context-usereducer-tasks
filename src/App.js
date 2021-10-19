@@ -13,7 +13,7 @@ function App() {
       <div>
         <div>
           <ContextProvider>
-            <Heading />
+            <Heading className="header" />
             <Switch>
               <Route path="/" component={TaskList} exact />
               <Route path="/add" component={TaskForm} />
