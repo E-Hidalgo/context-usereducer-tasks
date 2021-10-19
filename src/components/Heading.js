@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FaPlus } from "react-icons/fa"
 
 const Heading = () => {
   return (
@@ -10,7 +11,7 @@ const Heading = () => {
         </Link>
         <div>
           <Link to="/add">
-            <button>Add Employee</button>
+            <button><FaPlus /></button>
           </Link>
         </div>
       </div>
