@@ -7,11 +7,13 @@ import "../App.css"
 
 const TaskList = () => {
 
-  const context = useContext(GlobalContext)
+  const { tasks, deleteTask } = useContext(GlobalContext)
+
   return (
     <div className="TaskListContainer">
+      <button onClick={() => deleteTask()}>Delete ALL</button>
       <div className="TaskList">
-        {context.tasks.map((task) => (
+        {tasks.map((task) => (
           <div className="TaskContainer" key={task.id}>
             <div>
               <h1>{task.title}</h1>
