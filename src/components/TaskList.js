@@ -4,10 +4,17 @@ import { GlobalContext } from "../context/GlobalContext"
 const TaskList = () => {
 
   const context = useContext(GlobalContext)
-  console.log(context)
   return (
+
     <div>
-      TaskList
+      <div>
+        {context.tasks.map((task) => (
+          <div>
+            <h1>{task.title}</h1>
+            <h6>{task.id}</h6>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
