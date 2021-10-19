@@ -4,6 +4,8 @@ import { GlobalContext } from "../context/GlobalContext"
 import { FaTrashAlt, FaEdit } from "react-icons/fa"
 import "../App.css"
 
+import { Link } from "react-router-dom"
+
 
 const TaskList = () => {
 
@@ -11,7 +13,7 @@ const TaskList = () => {
 
   return (
     <div className="TaskListContainer">
-      <button onClick={() => deleteTask()}>Delete ALL</button>
+      {/* <button onClick={() => deleteTask()}>Delete ALL</button> */}
       <div className="TaskList">
         {tasks.map((task) => (
           <div className="TaskContainer" key={task.id}>
@@ -20,8 +22,8 @@ const TaskList = () => {
               <h6>{task.id}</h6>
             </div>
             <div>
-              <button><FaEdit /></button>
-              <button><FaTrashAlt /></button>
+              <Link to={`/edit/${task.id}`}><FaEdit /></Link>
+              <button onClick={() => deleteTask(task.id)}><FaTrashAlt /></button>
             </div>
           </div>
         ))}

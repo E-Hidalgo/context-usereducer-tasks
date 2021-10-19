@@ -33,8 +33,8 @@ export const ContextProvider = ({ children }) => {
   }
 
 
-  const deleteTask = () => {
-    dispatch({ type: "DELETE_TASK" })
+  const deleteTask = (id) => {
+    dispatch({ type: "DELETE_TASK", payload: id })
   }
 
   return (
