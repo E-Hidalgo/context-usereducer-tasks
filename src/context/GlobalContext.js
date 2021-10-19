@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 import { createContext, useReducer } from "react"
 import appReducer from "./AppReducer"
+import { v4 } from "uuid"
 
 const initialState = {
   tasks: [
@@ -28,7 +29,7 @@ export const ContextProvider = ({ children }) => {
 
   const addTask = (task) => {
 
-    dispatch({ type: "ADD_TASK", payload: task })
+    dispatch({ type: "ADD_TASK", payload: { ...task, id: v4() } })
   }
 
 
