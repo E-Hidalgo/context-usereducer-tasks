@@ -9,12 +9,14 @@ const Heading = () => {
     <div className="headerContainer">
       <div className="header">
         <Link className="Link" to="/">
-          <h5 className="appTitle">Los PicAppPiedra</h5>
-          <p>YABADABADUUUUUUUUUUUUU</p>
+          <h5 className="appTitle">PicAppPiedra</h5>
         </Link>
-        <div>
-          <Link to="/add">
-            <button className="button"><FaPlus /></button>
+        <div className="--flex">
+          <Link className="Link" to="/add">
+            <button className="button --flex">
+              <FaPlus />
+              Add Task
+            </button>
           </Link>
         </div>
       </div>
