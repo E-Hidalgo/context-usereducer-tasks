@@ -17,11 +17,11 @@ export const ContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(appReducer, initialState)
 
-  // useEffect(() => {
-  //   localStorage.setItem("tasksSaved", JSON.stringify(state.tasks))
-  //   const alfredo = JSON.parse(localStorage.getItem("tasksSaved"))
-  //   state.tasks = alfredo
-  // }, [state]);
+  useEffect(() => {
+    localStorage.setItem("tasksSaved", JSON.stringify(state.tasks))
+    const alfredo = JSON.parse(localStorage.getItem("tasksSaved"))
+    state.tasks = alfredo
+  }, [state]);
 
 
 
@@ -41,6 +41,7 @@ export const ContextProvider = ({ children }) => {
 
   const taskDone = (id) => {
     dispatch({ type: "TASK_DONE", payload: id })
+
   }
 
 
