@@ -4,7 +4,7 @@ import { createContext, useReducer, useEffect, useLocalStorage } from "react"
 import appReducer from "./AppReducer"
 import { v4 } from "uuid"
 import Axios from "axios"
-import { AUTH_TOKEN } from "../API/axiosAuth"
+// import { AUTH_TOKEN } from "../API/axiosAuth"
 
 
 const initialState = {
@@ -23,16 +23,16 @@ export const ContextProvider = ({ children }) => {
 
 
 
-  const API = async () => {
+  const APIcall = async () => {
 
-    const APIcall =
-      await Axios.get("https://api.giphy.com/v1/gifs/trending?api_key=dBvFvLLl1LEJoFCa8LHBkbcyBqSPmz36&limit=25&rating=g",)
-    console.log(APIcall)
+    const APIresult =
+      await Axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=dBvFvLLl1LEJoFCa8LHBkbcyBqSPmz36&limit=25&rating=g`,)
+    console.log(APIresult.data.data)
   }
 
   useEffect(() => {
     localStorage.setItem("tasksSaved", JSON.stringify(state.tasks))
-    API()
+    APIcall()
     // state.tasks = JSON.parse(localStorage.getItem("tasksSaved"))
   }, [state]);
 
@@ -62,7 +62,7 @@ export const ContextProvider = ({ children }) => {
 
 
   return (
-    <GlobalContext.Provider value={{ ...state, addTask, deleteTask, updateTask, taskDone }}>
+    <GlobalContext.Provider value={{ ...state, addTask, deleteTask, updateTask, taskDone, APIcall }}>
       {children}
     </GlobalContext.Provider>
   )
