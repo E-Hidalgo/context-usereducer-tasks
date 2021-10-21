@@ -8,7 +8,8 @@ import Axios from "axios"
 
 
 const initialState = {
-  tasks: JSON.parse(localStorage.getItem("tasksSaved")) || []
+  tasks: JSON.parse(localStorage.getItem("tasksSaved")) || [],
+  gifs: []
 }
 
 
@@ -22,18 +23,16 @@ export const ContextProvider = ({ children }) => {
 
 
 
-
   const APIcall = async () => {
 
     const APIresult =
       await Axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=dBvFvLLl1LEJoFCa8LHBkbcyBqSPmz36&limit=25&rating=g`,)
-    console.log(APIresult.data.data)
+    const data = APIresult.data.data
+    return data
   }
 
   useEffect(() => {
     localStorage.setItem("tasksSaved", JSON.stringify(state.tasks))
-    APIcall()
-    // state.tasks = JSON.parse(localStorage.getItem("tasksSaved"))
   }, [state]);
 
 

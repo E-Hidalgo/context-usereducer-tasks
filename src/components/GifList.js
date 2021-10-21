@@ -1,39 +1,37 @@
-import React, { useState, useContext } from 'react'
-import { GlobalContext } from "../context/GlobalContext"
+import React, { useState, useEffect } from 'react'
+// import { GlobalContext } from "../context/GlobalContext"
+import Axios from "axios"
 
-function GifList(props) {
-  const { APIcall } = useContext(GlobalContext)
-  // const { APIcall } = this.props
+function GifList() {
+  // const { APIcall } = useContext(GlobalContext)
 
   const [gifs, setGifs] = useState([])
 
 
-  APIcall()
+  const callAPI = async () => {
+    const call = await Axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=dBvFvLLl1LEJoFCa8LHBkbcyBqSPmz36&limit=25&rating=g`)
+    const result = call.data.data
+    console.log(result)
+    setGifs(result)
+  }
 
 
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     gifs : []
-  //   }
-  // }
+  useEffect(() => {
+    callAPI()
+  }, []);
 
-
-  // this.setState({
-  //   gifs: APICall.data.results
-  // })
-
-
+  console.log(gifs)
   return (
     <div>
-      {/* {gifs.map((gif) => {
-        <div>
-          <img src={gif.images.fixed_height} alt="" />
-          <p>{gif.title}</p>
-        </div>
-      })
-      }    */}
+      {
+        gifs.map((gif) => (
+          <div key={gif.name}>
+            <img src={gif.images.fixed_height.webp} alt={gif.title} />
+            <p>{gif.title}</p>
+          </div>
+        ))
+      }
     </div>
   )
 }
