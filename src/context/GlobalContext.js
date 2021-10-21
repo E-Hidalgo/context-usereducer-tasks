@@ -25,18 +25,22 @@ export const ContextProvider = ({ children }) => {
   }, [state]);
 
   useEffect(() => {
-
+    const lat = 58.7984;
+    const lng = 17.8081;
+    const params = 'waveHeight,airTemperature';
 
     const API = () => {
-      const APIcall = axios.get(`https://api.giphy.com/v1/gifs/trending`, {
-        params: {
-          api_key: "dBvFvLLl1LEJoFCa8LHBkbcyBqSPmz36"
+      const APIcall = fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
+        headers: {
+          'Authorization': `${AUTH_TOKEN}`
         }
-      })
-      console.log(APIcall)
+      }).then((response) => response.json().then((jsonData) => {
+        console.log(jsonData)
+      }))
 
+      API()
+      console.log(APIcall)
     }
-    API()
 
 
   }, []);
