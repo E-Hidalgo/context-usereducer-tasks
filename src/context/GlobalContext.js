@@ -3,7 +3,7 @@
 import { createContext, useReducer, useEffect, useLocalStorage } from "react"
 import appReducer from "./AppReducer"
 import { v4 } from "uuid"
-import { axios } from "axios"
+import Axios from "axios"
 import { AUTH_TOKEN } from "../API/axiosAuth"
 
 
@@ -19,31 +19,24 @@ export const ContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(appReducer, initialState)
 
+
+
+
+
+  const API = async () => {
+
+    const APIcall =
+      await Axios.get("https://api.giphy.com/v1/gifs/trending?api_key=dBvFvLLl1LEJoFCa8LHBkbcyBqSPmz36&limit=25&rating=g",)
+    console.log(APIcall)
+  }
+
   useEffect(() => {
     localStorage.setItem("tasksSaved", JSON.stringify(state.tasks))
+    API()
     // state.tasks = JSON.parse(localStorage.getItem("tasksSaved"))
   }, [state]);
 
-  useEffect(() => {
-    const lat = 58.7984;
-    const lng = 17.8081;
-    const params = 'waveHeight,airTemperature';
 
-    const API = () => {
-      const APIcall = fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
-        headers: {
-          'Authorization': `${AUTH_TOKEN}`
-        }
-      }).then((response) => response.json().then((jsonData) => {
-        console.log(jsonData)
-      }))
-
-      API()
-      console.log(APIcall)
-    }
-
-
-  }, []);
 
 
 
