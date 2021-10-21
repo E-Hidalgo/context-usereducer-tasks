@@ -1,0 +1,5 @@
+
+const AUTH_TOKEN = "885da0b4-3259-11ec-a9c6-0242ac130002-885da136-3259-11ec-a9c6-0242ac130002"
+
+
+export { AUTH_TOKEN }

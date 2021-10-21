@@ -3,6 +3,8 @@
 import { createContext, useReducer, useEffect, useLocalStorage } from "react"
 import appReducer from "./AppReducer"
 import { v4 } from "uuid"
+import { axios } from "axios"
+import { AUTH_TOKEN } from "../API/axiosAuth"
 
 
 const initialState = {
@@ -21,6 +23,23 @@ export const ContextProvider = ({ children }) => {
     localStorage.setItem("tasksSaved", JSON.stringify(state.tasks))
     // state.tasks = JSON.parse(localStorage.getItem("tasksSaved"))
   }, [state]);
+
+  useEffect(() => {
+
+
+    const API = () => {
+      const APIcall = axios.get(`https://api.giphy.com/v1/gifs/trending`, {
+        params: {
+          api_key: "dBvFvLLl1LEJoFCa8LHBkbcyBqSPmz36"
+        }
+      })
+      console.log(APIcall)
+
+    }
+    API()
+
+
+  }, []);
 
 
 
