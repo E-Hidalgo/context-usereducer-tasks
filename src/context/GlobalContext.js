@@ -6,7 +6,7 @@ import { v4 } from "uuid"
 
 
 const initialState = {
-  tasks: []
+  tasks: JSON.parse(localStorage.getItem("tasksSaved"))
 }
 
 
@@ -19,8 +19,7 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("tasksSaved", JSON.stringify(state.tasks))
-    const alfredo = JSON.parse(localStorage.getItem("tasksSaved"))
-    state.tasks = alfredo
+    state.tasks = JSON.parse(localStorage.getItem("tasksSaved"))
   }, [state]);
 
 
