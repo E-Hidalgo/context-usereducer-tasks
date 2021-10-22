@@ -33,7 +33,7 @@ const TaskForm = () => {
 
     }
 
-    history.push("/")
+    history.push("/tasks")
   }
 
   useEffect(() => {

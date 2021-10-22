@@ -27,6 +27,7 @@
 .button {
   width: 100px;
   padding: .8rem;
+  margin: .9rem;
   background-color: green;
   outline: none;
   border: white;
@@ -172,4 +173,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+
+
+/* ------ GIFS PAGE ------ */
+
+.gifGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }

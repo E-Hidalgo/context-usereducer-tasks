@@ -18,6 +18,17 @@ const Heading = () => {
               Add Task
             </button>
           </Link>
+          <Link className="Link" to="/tasks">
+            <button className="button --flex">
+              Tasks
+            </button>
+          </Link>
+          <Link className="Link" to="/">
+            <button className="button --flex">
+              GIFS
+            </button>
+          </Link>
+
         </div>
       </div>
 

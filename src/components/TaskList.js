@@ -5,12 +5,13 @@ import { FaTrashAlt, FaEdit } from "react-icons/fa"
 import "../App.css"
 
 import { Link } from "react-router-dom"
+import GifList from './GifList'
 
 
 const TaskList = () => {
 
   const { tasks, deleteTask, taskDone } = useContext(GlobalContext)
-
+  console.log(tasks)
   return (
     <div className="TaskListContainer">
       {/* <button onClick={() => deleteTask()}>Delete ALL</button> */}

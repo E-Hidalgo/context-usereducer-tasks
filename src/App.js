@@ -16,11 +16,13 @@ function App() {
           <ContextProvider>
             <Heading className="header" />
             <Switch>
-              <Route path="/" component={TaskList} exact />
+              <Route path="/tasks" component={TaskList} />
               <Route path="/add" component={TaskForm} />
               <Route path="/edit/:id" component={TaskForm} />
-              <Route path="/trending-gifs" component={GifList}></Route>
+              <Route path="/" component={GifList} exact></Route>
             </Switch>
+
+
           </ContextProvider>
 
         </div>

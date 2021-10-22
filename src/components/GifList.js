@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 // import { GlobalContext } from "../context/GlobalContext"
 import Axios from "axios"
+import "../App.css"
+import GifCard from './GifCard'
 
 function GifList() {
   // const { APIcall } = useContext(GlobalContext)
@@ -23,13 +25,10 @@ function GifList() {
 
   console.log(gifs)
   return (
-    <div>
+    <div className="gifGrid">
       {
         gifs.map((gif) => (
-          <div key={gif.name}>
-            <img src={gif.images.fixed_height.webp} alt={gif.title} />
-            <p>{gif.title}</p>
-          </div>
+          <GifCard gif={gif} />
         ))
       }
     </div>
