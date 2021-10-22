@@ -9,7 +9,7 @@ import Axios from "axios"
 
 const initialState = {
   tasks: JSON.parse(localStorage.getItem("tasksSaved")) || [],
-  gifs: []
+  gifs: [],
 }
 
 

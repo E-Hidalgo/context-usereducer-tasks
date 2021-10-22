@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik } from "formik"
 import "../App.css"
 import { useHistory } from "react-router-dom"
 
 function Login() {
+
+  const [loggedIn, setloggedIn] = useState(false);
 
   const history = useHistory()
 
@@ -46,8 +48,11 @@ function Login() {
         onSubmit={() => {
           console.log("form sent")
           history.push("/")
+          setloggedIn(true)
+
         }}
       >
+
         {({ values, errors, touched, handleSubmit, handleChange, handleBlur }) => (
           <form className="formContainer" onSubmit={handleSubmit}>
             <div>

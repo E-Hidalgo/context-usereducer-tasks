@@ -15,13 +15,13 @@ function App() {
       <div>
         <div>
           <ContextProvider>
-            <Heading className="header" />
+            {/* <Heading className="header" /> */}
             <Switch>
-              <Route path="/tasks" component={TaskList} />
-              <Route path="/add" component={TaskForm} />
-              <Route path="/edit/:id" component={TaskForm} />
+              <Route path="/tasks" render={(props) => <div> <Heading className="header" /><TaskList {...props} /> </div>} />
+              <Route path="/add" render={(props) => <div> <Heading className="header" /><TaskForm {...props} /> </div>} />
+              <Route path="/edit/:id" render={(props) => <div> <Heading className="header" /><TaskForm {...props} /> </div>} />
               <Route path="/login" component={Login} exact></Route>
-              <Route path="/" component={GifList} exact></Route>
+              <Route path="/" render={(props) => <div> <Heading className="header" /><GifList {...props} /> </div>} exact></Route>
             </Switch>
 
 

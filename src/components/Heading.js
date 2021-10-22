@@ -1,13 +1,18 @@
 import React from 'react'
+
 import { Link } from 'react-router-dom'
 import { FaPlus } from "react-icons/fa"
 
 import "../App.css"
 
-const Heading = () => {
+const Heading = (props) => {
+
+
+
   return (
     <div className="headerContainer">
       <div className="header">
+
         <Link className="Link" to="/">
           <h5 className="appTitle">PicAppPiedra</h5>
         </Link>
@@ -30,6 +35,8 @@ const Heading = () => {
           </Link>
 
         </div>
+
+
       </div>
 
     </div>
