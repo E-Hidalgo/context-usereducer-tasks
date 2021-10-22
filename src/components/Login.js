@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom"
 function Login() {
 
   const [loggedIn, setloggedIn] = useState(false);
+  console.log(loggedIn)
 
   const history = useHistory()
 
@@ -45,10 +46,11 @@ function Login() {
 
 
 
-        onSubmit={() => {
+        onSubmit={(values) => {
           console.log("form sent")
-          history.push("/")
           setloggedIn(true)
+          localStorage.setItem("user", JSON.stringify(values))
+          history.push("/")
 
         }}
       >

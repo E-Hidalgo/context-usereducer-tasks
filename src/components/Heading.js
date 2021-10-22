@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GlobalContext } from "../context/GlobalContext"
+
 
 import { Link } from 'react-router-dom'
 import { FaPlus } from "react-icons/fa"
 
 import "../App.css"
 
-const Heading = (props) => {
+const Heading = () => {
+  const { loggedIn } = useContext(GlobalContext)
+  console.log(loggedIn)
 
 
 
@@ -14,7 +18,7 @@ const Heading = (props) => {
       <div className="header">
 
         <Link className="Link" to="/">
-          <h5 className="appTitle">PicAppPiedra</h5>
+          <img className="appTitle" src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABRFt6BgRlASemMPFTCCUIyJHXzUyMD7cfpxIuuaPf1VQHxmqRigGM3S_yM0bYjcTifqJ4JTkebvXqNAPQdVR-zLPJPZSXYr35fz1.png?r=044" alt="" width={200} />
         </Link>
         <div className="--flex">
           <Link className="Link" to="/add">

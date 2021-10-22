@@ -13,7 +13,7 @@ function GifList() {
   const callAPI = async () => {
     const call = await Axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=dBvFvLLl1LEJoFCa8LHBkbcyBqSPmz36&limit=25&rating=g`)
     const result = call.data.data
-    console.log(result)
+    // console.log(result)
     setGifs(result)
   }
 
@@ -23,7 +23,7 @@ function GifList() {
     callAPI()
   }, []);
 
-  console.log(gifs)
+  // console.log(gifs)
   return (
     <div className="gifGrid">
       {
