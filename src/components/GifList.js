@@ -29,6 +29,7 @@ function GifList() {
       {
         gifs.map((gif) => (
           <GifCard gif={gif} />
+
         ))
       }
     </div>

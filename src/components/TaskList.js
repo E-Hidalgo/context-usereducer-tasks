@@ -5,7 +5,7 @@ import { FaTrashAlt, FaEdit } from "react-icons/fa"
 import "../App.css"
 
 import { Link } from "react-router-dom"
-import GifList from './GifList'
+// import GifList from './GifList'
 
 
 const TaskList = () => {

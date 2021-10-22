@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom"
 import './App.css';
 import GifList from "./components/GifList";
 import Heading from "./components/Heading"
+import Login from "./components/Login";
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 
@@ -19,6 +20,7 @@ function App() {
               <Route path="/tasks" component={TaskList} />
               <Route path="/add" component={TaskForm} />
               <Route path="/edit/:id" component={TaskForm} />
+              <Route path="/login" component={Login} exact></Route>
               <Route path="/" component={GifList} exact></Route>
             </Switch>
 
