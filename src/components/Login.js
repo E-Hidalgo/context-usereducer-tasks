@@ -1,8 +1,12 @@
 import React from 'react'
 import { Formik } from "formik"
 import "../App.css"
+import { useHistory } from "react-router-dom"
 
 function Login() {
+
+  const history = useHistory()
+
   return (
     <div>
       <h4>Login Page</h4>
@@ -23,21 +27,25 @@ function Login() {
           }
           if (!values.email) {
             errors.email = "Juani, please add an email"
-          } else if (/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
+          } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
             errors.email = "Juani, enter a valid email"
 
           }
 
           if (!values.password) {
             errors.password = "Juani please, check your password"
-          } else if (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}$/.test(values.password)) {
+          } else if (!/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}$/.test(values.password)) {
             errors.password = "Juani, password must use letters, numbers and minimum 6 characters"
 
           }
           return errors
         }}
+
+
+
         onSubmit={() => {
           console.log("form sent")
+          history.push("/")
         }}
       >
         {({ values, errors, touched, handleSubmit, handleChange, handleBlur }) => (
@@ -63,7 +71,7 @@ function Login() {
 
             <div>
               <label htmlFor="email">
-                Password
+                Email
                 <input
                   type="email"
                   name="email"

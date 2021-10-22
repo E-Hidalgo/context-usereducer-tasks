@@ -28,7 +28,7 @@ function GifList() {
     <div className="gifGrid">
       {
         gifs.map((gif) => (
-          <GifCard gif={gif} />
+          <GifCard gif={gif} key={gif.id} />
 
         ))
       }
