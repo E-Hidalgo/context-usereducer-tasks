@@ -9,39 +9,60 @@ function Login() {
       <Formik
         initialValues={{
           name: "",
-          email: ""
+          email: "",
+          password: ""
         }}
         validate={(values) => {
-          if (!values.nombre) {
-            console.log("Escribe algún texto")
+          let errors = {}
+
+          if (!values.name) {
+            errors.name = "Juani, please add an username"
+          } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
+            errors.name = "Juani, write a normal name, asshole"
+
           }
+          if (!values.email) {
+            errors.email = "Juani, please add an email"
+          } else if (/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(values.email)) {
+            errors.email = "Juani, enter a valid email"
+
+          }
+
+          if (!values.password) {
+            errors.password = "Juani please, check your password"
+          } else if (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[A-Za-z0-9]{6,}$/.test(values.password)) {
+            errors.password = "Juani, password must use letters, numbers and minimum 6 characters"
+
+          }
+          return errors
         }}
-        onSubmit={(values) => {
-          console.log(values)
-          console.log("formulario enviado")
+        onSubmit={() => {
+          console.log("form sent")
         }}
       >
-        {({ values, handleSubmit, handleChange, handleBlur }) => (
+        {({ values, errors, touched, handleSubmit, handleChange, handleBlur }) => (
           <form className="formContainer" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="userName">
+              <label htmlFor="name">
                 Username
+
                 <input
                   type="text"
-                  name="userName"
-                  id="userName"
-                  placeholder="alfredo@elcabezahuevo.com"
+                  name="name"
+                  id="name"
+                  placeholder="user name"
                   className="input"
                   value={values.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
-
                 />
               </label>
+
+              {touched.name && errors.name && <div className="errorForm">{errors.name}</div>}
             </div>
 
             <div>
-              <label htmlFor="password">
+              <label htmlFor="email">
                 Password
                 <input
                   type="email"
@@ -52,23 +73,28 @@ function Login() {
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-
                 />
               </label>
+              {touched.email && errors.email && <div className="errorForm">{errors.email}</div>}
 
             </div>
             <div>
-              <label htmlFor="Password">
+              <label htmlFor="password">
                 Repeat Password
                 <input
                   type="password"
                   name="password"
                   id="password"
+                  value={values.password}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder=" password"
                   className="input"
 
                 />
               </label>
+              {touched.password && errors.password && <div className="errorForm">{errors.password}</div>}
+
             </div>
             <button className="formButton" type="submit">Log In</button>
 

@@ -139,7 +139,7 @@
 
 .input {
   width: 10rem;
-  margin: .5rem;
+  margin: .5rem 0;
   padding: 1rem;
   background-color: #202124;
   border: none;
@@ -182,4 +182,10 @@
 .gifGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+}
+
+.errorForm {
+  font-size: 0.8rem;
+  color: red;
+  margin-bottom: 0.5rem
 }
